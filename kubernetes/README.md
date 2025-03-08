@@ -1,6 +1,6 @@
 # Kubernetes Deployment for Tic Tac Toe
 
-This directory contains Kubernetes manifests for deploying the Tic Tac Toe application.
+This directory contains Kubernetes manifests for deploying the Demo Tic Tac Toe application.
 
 ## Components
 
