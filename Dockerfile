@@ -8,9 +8,14 @@ RUN npm run build
 
 # Production stage
 FROM nginx:1.25.4-alpine3.18
-# Update libxml2 to fix vulnerabilities
+
+# Update vulnerable packages
 RUN apk update && \
-    apk upgrade libxml2>=2.13.4-r4 && \
+    apk upgrade --no-cache \
+        curl>=8.9.0-r0 \
+        libcurl>=8.9.0-r0 \
+        libexpat>=2.6.3-r0 \
+        libxml2>=2.13.4-r4 && \
     rm -rf /var/cache/apk/*
 
 COPY --from=build /app/dist /usr/share/nginx/html
